@@ -1,0 +1,66 @@
+/* registration-form.css */
+
+.registration-form {
+  max-width: 500px;
+  margin: 100px auto;
+  padding: 30px;
+  background-color: #333;
+  color: #fff;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.registration-form h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.registration-form h3 {
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 30px;
+}
+
+.registration-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+/* Add custom eye icon */
+.input-with-eye {
+  position: relative;
+}
+
+.input-with-eye .eye-icon {
+  position: absolute;
+  top: 40%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.registration-form button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 15px;
+  background-color: #13604d;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.registration-form button:hover {
+  background-color: #139f7b;
+}
+
+.registration-form a {
+  text-decoration: none;
+  color: #15af87;
+}

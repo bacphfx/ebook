@@ -1,38 +1,84 @@
 .nav {
-	position: fixed;
-	top: 0;
-	width: 100%;
-	padding: 20px;
-	height: 60px;
-	z-index: 1;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px;
+  height: 60px;
+  z-index: 1;
 
-	/* Animation */
-	transition-timing-function: ease-in;
-	transition: all 0.5s;
-
+  /* Animation */
+  transition-timing-function: ease-in;
+  transition: all 0.5s;
+}
+.fixed {
+  display: flex;
+  justify-content: space-between;
 }
 
 .nav_black {
-	background-color: #111;
+  background-color: #111;
+  opacity: 0.8;
 }
 
 .nav_logo {
-	position: fixed;
-	left: 20px;
-	width: 80px;
-	object-fit: contain;
+  /* position: fixed; */
+  /* left: 20px; */
+  width: 80px;
+  /* object-fit: contain; */
 }
 
-.nav_avatar {
-	position: fixed;
-	right: 20px;
-	width: 30px;
-	object-fit: contain;
+/* .nav_avatar {
+  position: fixed;
+  right: 20px;
+  width: 30px;
+  object-fit: contain;
+} */
+
+.right_nav {
+  flex: 6;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .nav-title {
-	font-size: 25px;
-	color: red;
-	font-weight: bold;
-	text-decoration:none;
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  margin-left: 2%;
+}
+
+.left_nav {
+  flex: 4;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.button {
+  text-align: center;
+  margin-right: 3%;
+  padding: 8px 15px;
+  border-radius: 20px;
+  background-color: transparent;
+}
+.button_1 {
+  border: 1px solid yellow;
+}
+
+.button_2 {
+  border: 1px solid gray;
+}
+
+.button_3 {
+  border: none;
+  background-color: rgb(21, 176, 136);
+}
+
+.yellow {
+  color: yellow;
+  text-decoration: none;
+}
+
+.white {
+  color: white;
+  text-decoration: none;
 }

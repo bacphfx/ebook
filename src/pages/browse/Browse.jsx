@@ -6,20 +6,25 @@ import Banner from "../../components/browse/Banner";
 import Nav from "../../components/browse/Nav";
 
 import "./Browse.css";
+import Slider from "../../components/browse/Slider";
 
 function Browse() {
   return (
     <div className="app">
       <Nav />
-      <Banner />
-      <MovieList title="" isLargeRow fetchUrl={requests.fetchOriginal} />
-      <MovieList title="Xu hướng" fetchUrl={requests.fetchTrending} />
-      <MovieList title="Xếp hạng cao" fetchUrl={requests.fetchTopRated} />
-      <MovieList title="Hành động" fetchUrl={requests.fetchActionMovies} />
-      <MovieList title="Hài" fetchUrl={requests.fetchComedyMovies} />
-      <MovieList title="Kinh dị" fetchUrl={requests.fetchHorrorMovies} />
-      <MovieList title="Lãng mạn" fetchUrl={requests.fetchRomanceMovies} />
-      <MovieList title="Tài liệu" fetchUrl={requests.fetchDocumentaries} />
+      <Slider />
+      {/* <Banner />
+      <MovieList title="" isLargeRow fetchUrl={requests.fetchOriginal} /> */}
+      <MovieList title="Sách miễn phí" fetchUrl={requests.fetchTrending} />
+      <MovieList title="Mới nhất" fetchUrl={requests.fetchTopRated} />
+      <MovieList title="Đề xuất" fetchUrl={requests.fetchActionMovies} />
+      <MovieList title="Bảng xếp hạng" fetchUrl={requests.fetchComedyMovies} />
+      <MovieList title="Sách mua lẻ" fetchUrl={requests.fetchHorrorMovies} />
+      <MovieList
+        title="Podcast đặc sắc"
+        fetchUrl={requests.fetchRomanceMovies}
+      />
+      <MovieList title="Combo sách" fetchUrl={requests.fetchDocumentaries} />
     </div>
   );
 }
