@@ -8,6 +8,8 @@ import axios from "axios";
 
 import alertify from "alertifyjs";
 import "alertifyjs/build/css/alertify.css";
+import { useDispatch } from "react-redux";
+import { login } from "../../redux/action/ActionSession";
 
 const Login = () => {
   const [phone, setPhone] = useState("");
@@ -17,24 +19,28 @@ const Login = () => {
   const [error, setError] = useState("");
 
   const navigate = useNavigate();
+  const dispath = useDispatch();
 
-  const handleLogin = () => {
-    const postLogin = async () => {
-      const body = {
-        phone,
-        password,
-      };
-      try {
-        const res = await axios.post("http://103.186.65.188/api/login", body);
-        alertify.set("notifier", "position", "bottom-left");
-        alertify.success("Đăng nhập thành công!");
-        navigate("/");
-        console.log(res.data);
-      } catch (error) {
-        setError(error.response.data.errors[0].message);
-      }
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    const body = {
+      phone,
+      password,
     };
-    postLogin();
+    try {
+      const res = await axios.post("http://103.186.65.188/api/login", body);
+      console.log(res.data);
+      localStorage.setItem("user", res.data.data.user);
+      localStorage.setItem("token", res.data.data.token);
+      const action = login(localStorage.getItem("user"));
+      dispath(action);
+      alertify.set("notifier", "position", "bottom-left");
+      alertify.success("Đăng nhập thành công!");
+      navigate("/");
+    } catch (error) {
+      setError(error.response.data.errors[0].message);
+    }
   };
 
   return (

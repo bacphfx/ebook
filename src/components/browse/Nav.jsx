@@ -2,8 +2,11 @@ import React, { useState, useEffect } from "react";
 import "./Nav.css";
 import { Search } from "@mui/icons-material";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function Nav() {
+  const auth = useSelector((state) => state.auth);
+  console.log(auth);
   const [show, handleshow] = useState(false);
 
   useEffect(() => {
@@ -33,9 +36,9 @@ function Nav() {
             /> */}
             <p>Book Store</p>
           </a>
-          <a className="nav-title" href="/">
-            Sách điện tử
-          </a>
+          <Link to="/">
+            <span className="nav-title">Sách điện tử</span>
+          </Link>
           <a className="nav-title" href="/">
             Sách nói
           </a>

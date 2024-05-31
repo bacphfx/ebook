@@ -1,13 +1,8 @@
-export const addSession = (data) => {
-  return {
-    type: "ADD_SESSION",
-    data,
-  };
-};
+export const login = (userInfo) => ({
+  type: "LOGIN",
+  payload: userInfo,
+});
 
-export const deleteSession = (data) => {
-  return {
-    type: "DELETE_SESSION",
-    data,
-  };
-};
+export const logout = () => ({
+  type: "LOGOUT",
+});

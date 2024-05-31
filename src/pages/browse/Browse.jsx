@@ -7,6 +7,7 @@ import Nav from "../../components/browse/Nav";
 
 import "./Browse.css";
 import Slider from "../../components/browse/Slider";
+import { useSelector } from "react-redux";
 
 function Browse() {
   return (
