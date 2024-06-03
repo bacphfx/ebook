@@ -59,28 +59,13 @@ function Nav() {
             Sách điện tử
           </a>
           <a className="nav-title" href="/">
-            Sách nói
+            Sản phẩm bán chạy
           </a>
           <a className="nav-title" href="/">
-            Sách hiệu sổi
+            Tin tức
           </a>
           <a className="nav-title" href="/">
-            Sách tóm tắt
-          </a>
-          <a className="nav-title" href="/">
-            Podscast
-          </a>
-          <a className="nav-title" href="/">
-            Combo
-          </a>
-          <a className="nav-title" href="/">
-            Tuyển tập
-          </a>
-          <a className="nav-title" href="/">
-            Tủ sách cộng đồng
-          </a>
-          <a className="nav-title" href="/">
-            Sáng tác
+            Khuyến mại
           </a>
         </div>
         <div className="left_nav">

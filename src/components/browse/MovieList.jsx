@@ -4,7 +4,7 @@ import movieTrailer from "movie-trailer";
 import MovieDetail from "../../components/browse/MovieDetail";
 import "./MovieList.css";
 import useModal from "../../utils/useModal";
-import Modal from "./Modal";
+import BookInfo from "./BookInfo";
 
 const base_url = "https://image.tmdb.org/t/p/original";
 
@@ -55,7 +55,7 @@ function MovieList({ title, fetchUrl, isLargeRow }) {
           );
         })}
       </div>
-      <Modal isShowing={isShowing} hide={toggle} data={selectedMovie} />
+      <BookInfo isShowing={isShowing} hide={toggle} data={selectedMovie} />
     </div>
   );
 }

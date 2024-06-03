@@ -13,6 +13,7 @@
 .fixed {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
 }
 
 .nav_black {
@@ -51,7 +52,6 @@
   flex: 4;
   display: flex;
   justify-content: flex-end;
-  text-align: center;
 }
 
 .search {

@@ -1,0 +1,79 @@
+.modal {
+  margin: auto;
+  width: 50vw;
+  height: 50vh;
+  position: fixed;
+  top: 100px;
+  left: 40px;
+  right: 40px;
+  bottom: 40px;
+  border: none;
+  background-color: #13604d;
+
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  overflow-y: auto;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-header {
+  flex: 3;
+  margin-right: 5%;
+}
+
+.modal-header img {
+  object-fit: cover;
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+}
+
+.info {
+  flex: 7;
+  margin-right: 5%;
+}
+
+.info h2,
+h3 {
+  margin-bottom: 10px;
+}
+
+.info p {
+  text-align: justify;
+}
+
+.price {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.price h3 {
+  margin-right: 100px;
+}
+
+.price button {
+  border-radius: 20px;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  background-color: rgb(21, 176, 136);
+  border: none;
+}
+
+.price span {
+  margin-left: 10px;
+  text-align: center;
+  color: white;
+}

@@ -14,8 +14,6 @@ function Browse() {
     <div className="app">
       <Nav />
       <Slider />
-      {/* <Banner />
-      <MovieList title="" isLargeRow fetchUrl={requests.fetchOriginal} /> */}
       <MovieList title="Sách miễn phí" fetchUrl={requests.fetchTrending} />
       <MovieList title="Mới nhất" fetchUrl={requests.fetchTopRated} />
       <MovieList title="Đề xuất" fetchUrl={requests.fetchActionMovies} />
