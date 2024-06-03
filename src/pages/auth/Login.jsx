@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
@@ -10,6 +10,7 @@ import alertify from "alertifyjs";
 import "alertifyjs/build/css/alertify.css";
 import { useDispatch } from "react-redux";
 import { login } from "../../redux/action/ActionSession";
+import { Close } from "@mui/icons-material";
 
 const Login = () => {
   const [phone, setPhone] = useState("");
@@ -31,7 +32,7 @@ const Login = () => {
     try {
       const res = await axios.post("http://103.186.65.188/api/login", body);
       console.log(res.data);
-      localStorage.setItem("user", res.data.data.user);
+      localStorage.setItem("user", JSON.stringify(res.data.data.user));
       localStorage.setItem("token", res.data.data.token);
       const action = login(localStorage.getItem("user"));
       dispath(action);
@@ -39,12 +40,15 @@ const Login = () => {
       alertify.success("Đăng nhập thành công!");
       navigate("/");
     } catch (error) {
-      setError(error.response.data.errors[0].message);
+      setError(error.response.data.message);
     }
   };
 
   return (
     <div className="login-form">
+      <Link to="/">
+        <Close className="close" />
+      </Link>
       <h2>Đăng nhập</h2>
       <input
         type="text"

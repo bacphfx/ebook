@@ -51,12 +51,17 @@
   flex: 4;
   display: flex;
   justify-content: flex-end;
+  text-align: center;
+}
+
+.search {
+  margin-right: 3%;
 }
 
 .button {
   text-align: center;
   margin-right: 3%;
-  padding: 8px 15px;
+  padding: 0px 15px;
   border-radius: 20px;
   background-color: transparent;
 }
@@ -81,4 +86,29 @@
 .white {
   color: white;
   text-decoration: none;
+}
+
+.notification {
+  margin-right: 3%;
+}
+
+.username {
+  border: none;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  padding: 10px;
+  background-color: #fff;
+  color: black;
+  font-weight: bold;
+  text-align: center;
+  margin-right: 3%;
+  cursor: pointer;
+  background: url("https://e7.pngegg.com/pngimages/84/165/png-clipart-united-states-avatar-organization-information-user-avatar-service-computer-wallpaper-thumbnail.png");
+  background-position: 50% 50%;
+  background-size: cover;
+}
+
+.logout {
+  cursor: pointer;
 }

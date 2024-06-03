@@ -12,10 +12,14 @@ import { useDispatch } from "react-redux";
 
 function App() {
   const dispath = useDispatch();
+  const user = localStorage.getItem("user");
   useEffect(() => {
-    const action = login(localStorage.getItem("user"));
-    dispath(action);
-  }, []);
+    if (user) {
+      const action = login(user);
+
+      dispath(action);
+    }
+  }, [user]);
   return (
     <BrowserRouter>
       <Routes>

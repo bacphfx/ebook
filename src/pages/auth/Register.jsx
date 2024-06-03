@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Register.css";
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
@@ -8,6 +8,8 @@ import axios from "axios";
 
 import alertify from "alertifyjs";
 import "alertifyjs/build/css/alertify.css";
+import UserAPI from "../../components/api/userAPI";
+import { Close } from "@mui/icons-material";
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -56,10 +58,7 @@ const Register = () => {
           password_confirmation: confirmPassword,
         };
         try {
-          const res = await axios.post(
-            "http://103.186.65.188/api/register",
-            body
-          );
+          const res = await UserAPI.postRegister(body);
           // alert("Đăng ký thành công, bạn sẽ được chuyển đến trang chủ");
           alertify.set("notifier", "position", "bottom-left");
           alertify.success("Đăng ký tài khoản thành công!");
@@ -75,6 +74,9 @@ const Register = () => {
 
   return (
     <div className="registration-form">
+      <Link to="/">
+        <Close className="close" />
+      </Link>
       <h2>Đăng ký tài khoản</h2>
       <h3>Đăng ký để mua và theo dõi quá trình đọc sách</h3>
       <input
