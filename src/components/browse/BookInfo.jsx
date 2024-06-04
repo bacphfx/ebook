@@ -6,7 +6,6 @@ import { Close, MenuBook } from "@mui/icons-material";
 const base_url = "https://image.tmdb.org/t/p/original";
 
 const BookInfo = ({ isShowing, hide, data }) => {
-  console.log(data);
   return isShowing
     ? ReactDOM.createPortal(
         <React.Fragment>

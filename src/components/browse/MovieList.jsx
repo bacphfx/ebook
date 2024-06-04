@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "../../utils/axios";
-import movieTrailer from "movie-trailer";
-import MovieDetail from "../../components/browse/MovieDetail";
 import "./MovieList.css";
 import useModal from "../../utils/useModal";
 import BookInfo from "./BookInfo";

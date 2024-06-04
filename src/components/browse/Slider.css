@@ -60,6 +60,10 @@ article {
   transition: all 0.3s linear;
 }
 
+article img {
+  object-fit: cover;
+}
+
 article.activeSlide {
   opacity: 1;
   transform: translateX(0);

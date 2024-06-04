@@ -9,6 +9,7 @@ import Login from "./pages/auth/Login";
 import "./App.css";
 import { login } from "./redux/action/ActionSession";
 import { useDispatch } from "react-redux";
+import Categories from "./components/browse/Categories";
 
 function App() {
   const dispath = useDispatch();
@@ -27,6 +28,7 @@ function App() {
         <Route path="/search" element={<Search />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/categories" element={<Categories />} />
       </Routes>
     </BrowserRouter>
   );

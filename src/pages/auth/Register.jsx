@@ -4,8 +4,6 @@ import "./Register.css";
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
 
-import axios from "axios";
-
 import alertify from "alertifyjs";
 import "alertifyjs/build/css/alertify.css";
 import UserAPI from "../../components/api/userAPI";
@@ -37,7 +35,7 @@ const Register = () => {
 
   const handleRegister = () => {
     // Handle registration logic here (e.g., API calls, validation)
-    if (name.length == 0) {
+    if (name.length === 0) {
       setError("Vui lòng nhập tên");
     } else if (!validatePhone(phone)) {
       setError("Số điện thoại không đúng");

@@ -1,0 +1,21 @@
+.categories-wrapper {
+  margin: auto;
+  width: 100%;
+  position: fixed;
+  top: 50px;
+  padding: 50px;
+}
+
+.categories-header {
+}
+
+.categories {
+  display: flex;
+  line-height: 50px;
+  justify-content: space-between;
+}
+
+.category {
+  margin-right: 10%;
+  font-size: larger;
+}
