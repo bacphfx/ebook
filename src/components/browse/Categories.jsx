@@ -1,25 +1,39 @@
 import React, { useEffect, useState } from "react";
 import Nav from "./Nav";
-import CategorisAPI from "../api/categoryAPI";
+import CategoriesAPI from "../api/categoryAPI";
 import "./categories.css";
+import Pagination from "./Pagination";
 
-const Categories = () => {
+const Categories = ({ hide }) => {
   const [categories, setCategories] = useState([]);
-  const page = 1;
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+
   useEffect(() => {
-    const getCategories = async () => {
-      const res = await CategorisAPI.getAllData(page);
-      setCategories(res.data.data);
+    const getCategories = async (page) => {
+      try {
+        const res = await CategoriesAPI.getAllData(page);
+        setCategories(res.data.data);
+        setTotalPages(Math.ceil(res.data.total / res.data.per_page));
+      } catch (error) {
+        console.log(error);
+      }
     };
-    getCategories();
-  }, []);
-  console.log(categories);
+    getCategories(currentPage);
+  }, [currentPage]);
+
+  const handlePageChange = (page) => {
+    if (page > 0 && page <= totalPages) {
+      setCurrentPage(page);
+    }
+  };
+
   return (
-    <div className="app">
-      <Nav />
+    <>
+      <div className="overlay" onClick={hide}></div>
       <div className="categories-wrapper">
         <div className="categories-header">
-          <h1>Sách điện tử</h1>
+          <h3>Sách điện tử</h3>
         </div>
         <div className="categories">
           {categories.map((category) => (
@@ -28,8 +42,13 @@ const Categories = () => {
             </div>
           ))}
         </div>
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+        />
       </div>
-    </div>
+    </>
   );
 };
 

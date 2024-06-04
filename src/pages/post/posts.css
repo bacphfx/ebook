@@ -1,0 +1,23 @@
+.post-container {
+  color: #fff;
+  min-height: 100vh;
+  margin-top: 80px;
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px; */
+}
+
+.App-header {
+  margin-bottom: 20px;
+  margin-left: 80px;
+}
+
+.news-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 20px 80px;
+}
