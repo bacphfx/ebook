@@ -13,7 +13,7 @@ const Posts = () => {
   useEffect(() => {
     try {
       const getPosts = async (page) => {
-        const res = await postAPI.getAllData(page);
+        const res = await postAPI.getAllData(1, page);
         setPosts(res.data.data);
         setTotalPages(Math.ceil(res.data.total / res.data.per_page));
       };

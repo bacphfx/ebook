@@ -1,0 +1,20 @@
+/* src/components/PDFViewer.css */
+
+.pdf-viewer {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.toolbar {
+  margin-bottom: 10px;
+  position: fixed;
+  top: 100px;
+}
+
+.viewer {
+  flex: 1;
+}

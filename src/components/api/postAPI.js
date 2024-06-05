@@ -1,8 +1,8 @@
 import axiosClient from "../../utils/axios";
 
 const postAPI = {
-  getAllData: (page) => {
-    const url = `/posts?page=${page}`;
+  getAllData: (categoryId, page) => {
+    const url = `/posts?post_category_id=${categoryId}&page=${page}`;
     return axiosClient.get(url);
   },
 

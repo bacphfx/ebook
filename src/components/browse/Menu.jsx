@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Nav from "./Nav";
 import CategoriesAPI from "../api/categoryAPI";
-import "./categories.css";
+import "./menu.css";
 import Pagination from "./Pagination";
+import { Link } from "react-router-dom";
 
-const Categories = ({ hide }) => {
+const Menu = ({ hide }) => {
   const [categories, setCategories] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
@@ -37,9 +38,15 @@ const Categories = ({ hide }) => {
         </div>
         <div className="categories">
           {categories.map((category) => (
-            <div className="category" key={category.id}>
-              {category.name}
-            </div>
+            <Link
+              onClick={hide}
+              to={`/category/${category.id}`}
+              state={{ categoryName: category.name }}
+              className="category"
+              key={category.id}
+            >
+              <div className="category-name">{category.name}</div>
+            </Link>
           ))}
         </div>
         <Pagination
@@ -52,4 +59,4 @@ const Categories = ({ hide }) => {
   );
 };
 
-export default Categories;
+export default Menu;

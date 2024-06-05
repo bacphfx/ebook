@@ -3,14 +3,14 @@ import "./Nav.css";
 import { Logout, NotificationsNone, Search } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import Categories from "./Categories";
+import Menu from "./Menu";
 
 function Nav() {
   const auth = useSelector((state) => state.auth);
   const isAuth = auth.isAuthenticated;
   const [show, handleShow] = useState(false);
 
-  const [isCategoriesShow, setIsCategoriesShow] = useState(false);
+  const [isMenuShow, setIsMenuShow] = useState(false);
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -39,7 +39,7 @@ function Nav() {
   };
 
   const toggle = () => {
-    setIsCategoriesShow(!isCategoriesShow);
+    setIsMenuShow(!isMenuShow);
   };
 
   return (
@@ -56,28 +56,28 @@ function Nav() {
             <Link
               className="nav-title"
               to="/"
-              onClick={() => setIsCategoriesShow(false)}
+              onClick={() => setIsMenuShow(false)}
             >
               Sản phẩm bán chạy
             </Link>
             <Link
               className="nav-title"
               to="/posts"
-              onClick={() => setIsCategoriesShow(false)}
+              onClick={() => setIsMenuShow(false)}
             >
               Tin tức
             </Link>
             <Link
               className="nav-title"
               to="/"
-              onClick={() => setIsCategoriesShow(false)}
+              onClick={() => setIsMenuShow(false)}
             >
               Khuyến mại
             </Link>
           </div>
           <div className="left_nav">
             <div className="search">
-              <Link to="/search" onClick={() => setIsCategoriesShow(false)}>
+              <Link to="/search" onClick={() => setIsMenuShow(false)}>
                 <Search style={{ color: "white" }} fontSize="large" />
               </Link>
             </div>
@@ -86,7 +86,7 @@ function Nav() {
               <Link
                 to="/"
                 className="yellow"
-                onClick={() => setIsCategoriesShow(false)}
+                onClick={() => setIsMenuShow(false)}
               >
                 Gói cước
               </Link>
@@ -97,7 +97,7 @@ function Nav() {
                   <Link
                     to="/register"
                     className="white"
-                    onClick={() => setIsCategoriesShow(false)}
+                    onClick={() => setIsMenuShow(false)}
                   >
                     Đăng ký
                   </Link>
@@ -106,7 +106,7 @@ function Nav() {
                   <Link
                     to="/login"
                     className="white"
-                    onClick={() => setIsCategoriesShow(false)}
+                    onClick={() => setIsMenuShow(false)}
                   >
                     Đăng nhập
                   </Link>
@@ -126,7 +126,7 @@ function Nav() {
           </div>
         </div>
       </div>
-      {isCategoriesShow && <Categories hide={toggle} />}
+      {isMenuShow && <Menu hide={toggle} />}
     </div>
   );
 }

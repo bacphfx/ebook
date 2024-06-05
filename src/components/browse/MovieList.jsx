@@ -3,10 +3,11 @@ import axios from "../../utils/axios";
 import "./MovieList.css";
 import useModal from "../../utils/useModal";
 import BookInfo from "./BookInfo";
+import BookAPI from "../api/bookAPI";
 
 const base_url = "https://image.tmdb.org/t/p/original";
 
-function MovieList({ title, fetchUrl, isLargeRow }) {
+function MovieList({ title, data, number }) {
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
 
@@ -14,15 +15,12 @@ function MovieList({ title, fetchUrl, isLargeRow }) {
 
   useEffect(() => {
     async function fetchData() {
-      const request = await axios.get(
-        `http://localhost:5000/api/movies${fetchUrl}`
-      );
-      // console.log(request);
-      setMovies(request.results.slice(0, 6));
+      const request = await BookAPI.getBooksByCategory(data);
+      setMovies(request.data.data.slice(0, number));
       return request;
     }
     fetchData();
-  }, [fetchUrl]);
+  }, [data]);
 
   const handleClick = (movie) => {
     toggle();
@@ -42,13 +40,11 @@ function MovieList({ title, fetchUrl, isLargeRow }) {
             <div className="book" key={movie.id}>
               <img
                 onClick={() => handleClick(movie)}
-                className={`row_poster ${isLargeRow && "row_posterLarge"}`}
-                src={`${base_url}${
-                  isLargeRow ? movie.poster_path : movie.backdrop_path
-                }`}
+                className="row_poster"
+                src={movie.image}
                 alt={movie.name}
               />
-              <h4>{movie.name ? movie.name : movie.title}</h4>
+              <h4>{movie.title}</h4>
             </div>
           );
         })}

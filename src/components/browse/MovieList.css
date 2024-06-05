@@ -5,9 +5,9 @@
 }
 
 .book {
-  margin-right: 50px;
-  width: 260px;
-  height: 400px;
+  /* margin-right: 50px; */
+  width: 13vw;
+  height: 22vw;
   background-color: #f9f9f9;
   border: 1px solid #ccc;
   border-radius: 10px;
@@ -16,6 +16,8 @@
 
 .row_posters {
   display: flex;
+  flex-wrap: wrap;
+  gap: 4vw 3vw;
   margin-top: 20px;
 }
 

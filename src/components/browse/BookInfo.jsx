@@ -6,6 +6,10 @@ import { Close, MenuBook } from "@mui/icons-material";
 const base_url = "https://image.tmdb.org/t/p/original";
 
 const BookInfo = ({ isShowing, hide, data }) => {
+  function truncate(str, n) {
+    return str?.length > n ? str.substr(0, n - 1) + "..." : str;
+  }
+
   return isShowing
     ? ReactDOM.createPortal(
         <React.Fragment>
@@ -20,19 +24,24 @@ const BookInfo = ({ isShowing, hide, data }) => {
             <div className="modal">
               <Close className="close" onClick={hide} />
               <div className="modal-header">
-                <img src={`${base_url}${data?.poster_path}`} alt={data?.name} />
+                <img src={data.image} alt={data?.name} />
               </div>
               <div className="info">
-                <h1>{data?.title ? data.title : data?.name}</h1>
-                <h3>{data?.media_type}</h3>
+                <h1>{data?.title}</h1>
+                <h3>{data?.author}</h3>
                 <div className="price">
-                  <h3>100.000đ</h3>
+                  <h3>
+                    {new Intl.NumberFormat("vi-VN", {
+                      style: "currency",
+                      currency: "VND",
+                    }).format(data.price)}
+                  </h3>
                   <button className="read-button">
                     <MenuBook style={{ color: "white" }} />
                     <span>Đọc sách</span>
                   </button>
                 </div>
-                <p>{data?.overview}</p>
+                <p>{truncate(data.description, 800)}</p>
               </div>
             </div>
           </div>

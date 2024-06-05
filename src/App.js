@@ -10,6 +10,8 @@ import "./App.css";
 import { login } from "./redux/action/ActionSession";
 import { useDispatch } from "react-redux";
 import Posts from "./pages/post/Posts";
+import BookReader from "./pages/book/BookReader";
+import Category from "./pages/category/Category";
 
 function App() {
   const dispath = useDispatch();
@@ -28,8 +30,10 @@ function App() {
         <Route path="/search" element={<Search />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/category/:categoryId" element={<Category />} />
         <Route path="/posts" element={<Posts />} />
         <Route path="/posts/:id" element={<Browse />} />
+        <Route path="/test" element={<BookReader />} />
       </Routes>
     </BrowserRouter>
   );
