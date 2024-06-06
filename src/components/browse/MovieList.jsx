@@ -21,11 +21,11 @@ function MovieList({ title, data, number }) {
 
   const handleClick = (movie) => {
     toggle();
-    if (selectedMovie && selectedMovie.id === movie.id) {
-      setSelectedMovie(null);
-    } else {
-      setSelectedMovie(movie);
-    }
+    // if (selectedMovie && selectedMovie.id === movie.id) {
+    //   setSelectedMovie(null);
+    // } else {
+    setSelectedMovie(movie);
+    // }
   };
 
   return (

@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
-import BookAPI from "../../components/api/bookAPI";
+
 import Nav from "../../components/browse/Nav";
 import MovieList from "../../components/browse/MovieList";
-import requests from "../../utils/requests";
 
 const Category = () => {
   const { categoryId } = useParams();

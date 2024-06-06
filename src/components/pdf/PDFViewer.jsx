@@ -1,3 +1,4 @@
+import React from "react";
 import { Worker, Viewer } from "@react-pdf-viewer/core";
 import "@react-pdf-viewer/core/lib/styles/index.css";
 import { toolbarPlugin } from "@react-pdf-viewer/toolbar";
@@ -8,17 +9,9 @@ import "./PDFViewer.css";
 GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js2.11.338/pdf.worker.min.js`;
 
 export default function PDFViewer({ url }) {
-  const toolbarPluginInstance = toolbarPlugin({
-    getToolbar: (toolbarSlot) => {
-      // Tắt nút Open và Download
-      toolbarSlot.openButton = () => null;
-      toolbarSlot.downloadButton = () => null;
-
-      // Trả về thanh công cụ tùy chỉnh đã được cập nhật
-      return toolbarSlot;
-    },
-  });
+  const toolbarPluginInstance = toolbarPlugin();
   const { Toolbar } = toolbarPluginInstance;
+
   return (
     <div className="pdf-viewer">
       <div className="toolbar">

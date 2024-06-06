@@ -1,11 +1,24 @@
 // Modal.js
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import "./bookInfo.css";
 import { Close, MenuBook } from "@mui/icons-material";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 const base_url = "https://image.tmdb.org/t/p/original";
 
 const BookInfo = ({ isShowing, hide, data }) => {
+  const auth = useSelector((state) => state.auth);
+  const user = JSON.parse(auth.user);
+  const [isSub, setIsSub] = useState(false);
+
+  useEffect(() => {
+    if (!user) {
+      setIsSub(false);
+    } else if (user.role === 2 || user.is_subscribed === 1) {
+      setIsSub(true);
+    }
+  }, [user]);
   function truncate(str, n) {
     return str?.length > n ? str.substr(0, n - 1) + "..." : str;
   }
@@ -24,7 +37,7 @@ const BookInfo = ({ isShowing, hide, data }) => {
             <div className="modal">
               <Close className="close" onClick={hide} />
               <div className="modal-header">
-                <img src={data.image} alt={data?.name} />
+                <img src={data?.image} alt={data?.name} />
               </div>
               <div className="info">
                 <h1>{data?.title}</h1>
@@ -34,14 +47,23 @@ const BookInfo = ({ isShowing, hide, data }) => {
                     {new Intl.NumberFormat("vi-VN", {
                       style: "currency",
                       currency: "VND",
-                    }).format(data.price)}
+                    }).format(data?.price)}
                   </h3>
-                  <button className="read-button">
-                    <MenuBook style={{ color: "white" }} />
-                    <span>Đọc sách</span>
-                  </button>
+                  {isSub ? (
+                    <Link to={`/book/${data.id}`} className="link-style">
+                      <button className="read-button">
+                        <MenuBook style={{ color: "white" }} />
+                        <span>Đọc sách</span>
+                      </button>
+                    </Link>
+                  ) : (
+                    <button className="read-button">
+                      <MenuBook style={{ color: "white" }} />
+                      <span>Trở thành hội viên</span>
+                    </button>
+                  )}
                 </div>
-                <p>{truncate(data.description, 800)}</p>
+                <p>{truncate(data?.description, 800)}</p>
               </div>
             </div>
           </div>

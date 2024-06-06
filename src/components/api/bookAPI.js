@@ -6,7 +6,7 @@ const BookAPI = {
     return axiosClient.get(url);
   },
 
-  getDetailData: (id, token) => {
+  getBookDetail: (id, token) => {
     const url = `/books/${id}`;
     return axiosClient.get(url, {
       headers: {

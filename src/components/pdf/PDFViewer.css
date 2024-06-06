@@ -1,7 +1,6 @@
 /* src/components/PDFViewer.css */
 
 .pdf-viewer {
-  position: relative;
   width: 100%;
   max-width: 800px;
   margin: auto;
@@ -10,11 +9,31 @@
 }
 
 .toolbar {
-  margin-bottom: 10px;
   position: fixed;
-  top: 100px;
+  top: 50px;
+  z-index: 2;
+  margin-bottom: 10px;
 }
 
 .viewer {
   flex: 1;
+}
+
+.pdf-viewer .toolbar {
+  background-color: #fff; /* Đặt màu nền của thanh công cụ thành màu xám đậm */
+  color: #fff; /* Đặt màu văn bản thành màu trắng */
+}
+
+.pdf-viewer .rpv-toolbar-button {
+  background-color: #333; /* Màu nền nút */
+  color: #fff; /* Màu chữ nút */
+}
+
+.pdf-viewer .rpv-toolbar-button:hover {
+  background-color: #555; /* Màu nền nút khi hover */
+  color: #fff; /* Màu chữ nút khi hover */
+}
+
+.pdf-viewer .rpv-toolbar-separator {
+  border-color: #555; /* Màu của separator */
 }

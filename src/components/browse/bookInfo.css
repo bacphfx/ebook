@@ -76,3 +76,7 @@ h3 {
   text-align: center;
   color: white;
 }
+
+.link-style {
+  text-decoration: none;
+}

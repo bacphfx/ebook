@@ -21,7 +21,7 @@ const Posts = () => {
     } catch (error) {
       console.log(error);
     }
-  }, []);
+  }, [currentPage]);
 
   const handlePageChange = (page) => {
     if (page > 0 && page <= totalPages) {
