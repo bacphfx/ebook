@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "./Slider.css";
 import { ArrowBackIosNew, ArrowForwardIos } from "@mui/icons-material";
-import data from "../../data";
+import banner from "../../data"; // Chỉnh sửa dòng này để phù hợp với cách bạn import dữ liệu
+
 const Slider = () => {
-  const [banner, setBanner] = useState(data);
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
     const lastIndex = banner.length - 1;
-    // console.log(index);
     if (index < 0) {
       setIndex(lastIndex);
     }
@@ -38,7 +37,7 @@ const Slider = () => {
             }
             return (
               <article key={b.id} className={position}>
-                <img src={b.image} className="img" />
+                <img src={b.image} className="img" alt={`Slide ${b.id}`} />
               </article>
             );
           })}

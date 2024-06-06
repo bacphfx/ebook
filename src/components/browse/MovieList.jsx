@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from "react";
-import axios from "../../utils/axios";
 import "./MovieList.css";
 import useModal from "../../utils/useModal";
 import BookInfo from "./BookInfo";
 import BookAPI from "../api/bookAPI";
-
-const base_url = "https://image.tmdb.org/t/p/original";
 
 function MovieList({ title, data, number }) {
   const [movies, setMovies] = useState([]);
