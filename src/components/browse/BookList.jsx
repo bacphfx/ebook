@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import "./MovieList.css";
+import "./bookList.css";
 import useModal from "../../utils/useModal";
 import BookInfo from "./BookInfo";
 import BookAPI from "../api/bookAPI";
 
-function MovieList({ title, data, number }) {
+function BookList({ title, data, number }) {
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
 
@@ -51,4 +51,4 @@ function MovieList({ title, data, number }) {
   );
 }
 
-export default MovieList;
+export default BookList;

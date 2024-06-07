@@ -29,6 +29,10 @@
   transition: transform 450ms;
 }
 
+.book h4::first-letter {
+  text-transform: capitalize;
+}
+
 .row_poster:hover {
   transform: scale(1.1);
 }

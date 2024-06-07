@@ -1,0 +1,26 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.left-element {
+  position: absolute;
+  left: 20px;
+  cursor: pointer;
+}
+
+.center-element {
+  text-align: center;
+  flex-grow: 1;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.center-element::first-letter {
+  text-transform: capitalize;
+}

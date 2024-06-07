@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import MovieList from "../../components/browse/MovieList";
+import BookList from "../../components/browse/BookList";
 import Nav from "../../components/browse/Nav";
 
 import "./Browse.css";
@@ -26,7 +26,7 @@ function Browse() {
       <Nav />
       <Slider />
       {categories.map((category) => (
-        <MovieList
+        <BookList
           title={category.name}
           data={category.id}
           key={category.id}

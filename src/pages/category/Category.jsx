@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
 
 import Nav from "../../components/browse/Nav";
-import MovieList from "../../components/browse/MovieList";
+import BookList from "../../components/browse/BookList";
 
 const Category = () => {
   const { categoryId } = useParams();
@@ -12,12 +12,12 @@ const Category = () => {
   const [title, setTitle] = useState();
   useEffect(() => {
     setTitle(categoryName);
-  }, []);
+  }, [categoryName]);
 
   return (
     <>
       <Nav />
-      <MovieList title={title} data={categoryId} number={10} />
+      <BookList title={title} data={categoryId} number={10} />
     </>
   );
 };

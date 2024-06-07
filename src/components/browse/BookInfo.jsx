@@ -2,10 +2,9 @@
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import "./bookInfo.css";
-import { Close, MenuBook } from "@mui/icons-material";
+import { Close, MenuBook, ShoppingCart } from "@mui/icons-material";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-const base_url = "https://image.tmdb.org/t/p/original";
 
 const BookInfo = ({ isShowing, hide, data }) => {
   const auth = useSelector((state) => state.auth);
@@ -57,10 +56,16 @@ const BookInfo = ({ isShowing, hide, data }) => {
                       </button>
                     </Link>
                   ) : (
-                    <button className="read-button">
-                      <MenuBook style={{ color: "white" }} />
-                      <span>Trở thành hội viên</span>
-                    </button>
+                    <>
+                      <button className="read-button">
+                        <MenuBook style={{ color: "white" }} />
+                        <span>Trở thành hội viên</span>
+                      </button>
+                      <button className="read-button">
+                        <ShoppingCart style={{ color: "white" }} />
+                        <span>Mua sách</span>
+                      </button>
+                    </>
                   )}
                 </div>
                 <p>{truncate(data?.description, 800)}</p>

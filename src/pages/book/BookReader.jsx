@@ -3,6 +3,7 @@ import PDFViewer from "../../components/pdf/PDFViewer";
 import { useParams, useNavigate } from "react-router-dom"; // Sử dụng useNavigate thay vì useHistory
 import BookAPI from "../../components/api/bookAPI";
 import { ArrowBackIos } from "@mui/icons-material";
+import "./bookReader.css";
 
 const BookReader = () => {
   const token = localStorage.getItem("token");
@@ -47,8 +48,8 @@ const BookReader = () => {
   return (
     <div>
       <div className="header">
-        <ArrowBackIos onClick={handleBackClick} />
-        <h1>{book?.title}</h1>
+        <ArrowBackIos onClick={handleBackClick} className="left-element" />
+        <p className="center-element">{book?.title}</p>
       </div>
 
       {book?.file ? (

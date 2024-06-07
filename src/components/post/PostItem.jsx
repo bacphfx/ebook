@@ -8,7 +8,7 @@ const PostItem = ({ article }) => {
   }
   return (
     <div className="news-item">
-      <img src={article.image} />
+      <img src={article.image} alt={article.title} />
       <div className="content">
         <h2>{article.title}</h2>
         <p>{truncate(article.content, 150)}</p>

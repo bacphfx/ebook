@@ -13,17 +13,13 @@ function Nav() {
   const [isMenuShow, setIsMenuShow] = useState(false);
 
   useEffect(() => {
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 50) {
-        handleShow(true);
-      } else handleShow(false);
-    });
+    const handleScroll = () => {
+      handleShow(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener("scroll", () => {
-        if (window.scrollY > 50) {
-          handleShow(true);
-        } else handleShow(false);
-      });
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -84,7 +80,7 @@ function Nav() {
 
             <button className="button button_1">
               <Link
-                to="/"
+                to="/subscribed"
                 className="yellow"
                 onClick={() => setIsMenuShow(false)}
               >
