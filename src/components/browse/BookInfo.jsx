@@ -4,12 +4,14 @@ import ReactDOM from "react-dom";
 import "./bookInfo.css";
 import { Close, MenuBook, ShoppingCart } from "@mui/icons-material";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import alertify from "alertifyjs";
 
 const BookInfo = ({ isShowing, hide, data }) => {
   const auth = useSelector((state) => state.auth);
   const user = JSON.parse(auth.user);
   const [isSub, setIsSub] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!user) {
@@ -22,6 +24,14 @@ const BookInfo = ({ isShowing, hide, data }) => {
     return str?.length > n ? str.substr(0, n - 1) + "..." : str;
   }
 
+  const handleBuy = (data) => {
+    if (!user) {
+      alertify.set("notifier", "position", "bottom-left");
+      alertify.error("Bạn cần đăng nhập để thực hiện hành động này!");
+    } else {
+      navigate("/buy", { state: { bookData: data } });
+    }
+  };
   return isShowing
     ? ReactDOM.createPortal(
         <React.Fragment>
@@ -57,11 +67,16 @@ const BookInfo = ({ isShowing, hide, data }) => {
                     </Link>
                   ) : (
                     <>
-                      <button className="read-button">
-                        <MenuBook style={{ color: "white" }} />
-                        <span>Trở thành hội viên</span>
-                      </button>
-                      <button className="read-button">
+                      <Link to="/subscribed" className="link-style">
+                        <button className="read-button">
+                          <MenuBook style={{ color: "white" }} />
+                          <span>Trở thành hội viên</span>
+                        </button>
+                      </Link>
+                      <button
+                        className="read-button"
+                        onClick={() => handleBuy(data)}
+                      >
                         <ShoppingCart style={{ color: "white" }} />
                         <span>Mua sách</span>
                       </button>

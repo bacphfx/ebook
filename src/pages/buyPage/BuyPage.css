@@ -1,0 +1,68 @@
+.buy-page-container {
+  padding: 20px;
+}
+.buy-page-container h1 {
+  text-align: center;
+}
+
+.buy-page-content {
+  width: 60vw;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.book-info {
+  flex: 1;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.book-info img {
+  width: 8vw;
+  height: 13vw;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.book-info-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.account-info {
+  flex: 2;
+  display: flex;
+  gap: 30px;
+}
+
+.account-info-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.book-info,
+.account-info {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.book-info h1,
+.book-info h2,
+.book-info h3,
+.account-info h1,
+.account-info h2,
+.account-info h3 {
+  color: #333;
+}
+
+.book-info p,
+.account-info p {
+  color: #666;
+}

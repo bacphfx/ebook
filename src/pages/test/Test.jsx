@@ -8,7 +8,7 @@ const slides = [
   { id: 4, content: "Slide 4" },
 ];
 
-const Slider = () => {
+const Test = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
@@ -63,4 +63,4 @@ const Slider = () => {
   );
 };
 
-export default Slider;
+export default Test;

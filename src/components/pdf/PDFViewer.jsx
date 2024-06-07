@@ -14,9 +14,9 @@ export default function PDFViewer({ url }) {
 
   return (
     <div className="pdf-viewer">
-      {/* <div className="toolbar">
+      <div className="toolbar">
         <Toolbar />
-      </div> */}
+      </div>
       <Worker
         workerUrl={`https://unpkg.com/pdfjs-dist@2.11.338/build/pdf.worker.min.js`}
       >
