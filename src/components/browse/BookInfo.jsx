@@ -7,10 +7,12 @@ import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import alertify from "alertifyjs";
 
-const BookInfo = ({ isShowing, hide, data }) => {
+const BookInfo = ({ isShowing, hide, data, purchasedBooks }) => {
   const auth = useSelector((state) => state.auth);
   const user = JSON.parse(auth.user);
   const [isSub, setIsSub] = useState(false);
+  const [isPurchased, setIsPurchased] = useState(false);
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -20,6 +22,15 @@ const BookInfo = ({ isShowing, hide, data }) => {
       setIsSub(true);
     }
   }, [user]);
+
+  useEffect(() => {
+    if (purchasedBooks.includes(data?.id)) {
+      setIsPurchased(true);
+    } else {
+      setIsPurchased(false);
+    }
+  }, [data?.id, purchasedBooks]);
+
   function truncate(str, n) {
     return str?.length > n ? str.substr(0, n - 1) + "..." : str;
   }
@@ -58,7 +69,7 @@ const BookInfo = ({ isShowing, hide, data }) => {
                       currency: "VND",
                     }).format(data?.price)}
                   </h3>
-                  {isSub ? (
+                  {isSub || isPurchased ? (
                     <Link to={`/book/${data.id}`} className="link-style">
                       <button className="read-button">
                         <MenuBook style={{ color: "white" }} />

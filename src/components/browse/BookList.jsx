@@ -5,6 +5,8 @@ import BookInfo from "./BookInfo";
 import BookAPI from "../api/bookAPI";
 import { debounce } from "lodash";
 import BookItem from "./BookItem";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchPurchasedBooks } from "../../redux/action/actionBook";
 
 function BookList({ title, data, number }) {
   const [books, setBooks] = useState([]);
@@ -28,6 +30,13 @@ function BookList({ title, data, number }) {
     fetchBooks(data);
   }, [data, fetchBooks]);
 
+  const dispatch = useDispatch();
+  const purchasedBooks = useSelector((state) => state.purchasedBooks.books);
+
+  useEffect(() => {
+    dispatch(fetchPurchasedBooks());
+  }, [dispatch]);
+
   const handleClick = (book) => {
     toggle();
     setSelectedBook(book);
@@ -42,7 +51,12 @@ function BookList({ title, data, number }) {
           return <BookItem book={book} click={handleClick} key={book.id} />;
         })}
       </div>
-      <BookInfo isShowing={isShowing} hide={toggle} data={selectedBook} />
+      <BookInfo
+        isShowing={isShowing}
+        hide={toggle}
+        data={selectedBook}
+        purchasedBooks={purchasedBooks}
+      />
     </div>
   );
 }

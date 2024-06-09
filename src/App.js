@@ -27,6 +27,7 @@ function App() {
       dispath(action);
     }
   }, [user]);
+
   return (
     <BrowserRouter>
       <Routes>

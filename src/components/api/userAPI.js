@@ -11,6 +11,15 @@ const UserAPI = {
     return axiosClient.get(url);
   },
 
+  getPurchasedBooks: (token) => {
+    const url = "/user-books?limit=999";
+    return axiosClient.get(url, {
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    });
+  },
+
   postRegister: (body) => {
     const url = `/register`;
     return axiosClient.post(url, body);

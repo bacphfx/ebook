@@ -24,8 +24,6 @@ const ImageUpload = ({ jsonData }) => {
     }
   };
 
-  console.log(selectedImage);
-
   // Hàm để xử lý khi người dùng gửi form
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -49,7 +47,6 @@ const ImageUpload = ({ jsonData }) => {
       if (jsonData?.type === "S") {
         res = await SubscribeAPI.postSubscribe(formData, token);
       }
-      console.log(res);
       alertify.set("notifier", "position", "bottom-left");
       alertify.success("Bạn đã gửi yêu cầu thành công");
       navigate(-1);
