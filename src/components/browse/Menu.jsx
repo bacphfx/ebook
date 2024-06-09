@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Nav from "./Nav";
 import CategoriesAPI from "../api/categoryAPI";
 import "./menu.css";
 import Pagination from "./Pagination";

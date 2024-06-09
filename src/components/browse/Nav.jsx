@@ -8,6 +8,7 @@ import Menu from "./Menu";
 function Nav() {
   const auth = useSelector((state) => state.auth);
   const isAuth = auth.isAuthenticated;
+  const user = JSON.parse(auth.user);
   const [show, handleShow] = useState(false);
 
   const [isMenuShow, setIsMenuShow] = useState(false);
@@ -43,7 +44,7 @@ function Nav() {
       <div className={`nav ${show && "nav_black"}`}>
         <div className="fixed">
           <div className="right_nav">
-            <Link to="/" className="nav-title">
+            <Link to="/" className="nav-title" style={{ color: "green" }}>
               <p>Book Store</p>
             </Link>
             <Link className="nav-title" onClick={toggle}>
@@ -77,16 +78,17 @@ function Nav() {
                 <Search style={{ color: "white" }} fontSize="large" />
               </Link>
             </div>
-
-            <button className="button button_1">
-              <Link
-                to="/subscribed"
-                className="yellow"
-                onClick={() => setIsMenuShow(false)}
-              >
-                Gói cước
-              </Link>
-            </button>
+            {user?.role === 2 || user?.isSubscribe === 1 ? null : (
+              <button className="button button_1">
+                <Link
+                  to="/subscribed"
+                  className="yellow"
+                  onClick={() => setIsMenuShow(false)}
+                >
+                  Gói cước
+                </Link>
+              </button>
+            )}
             {!isAuth ? (
               <>
                 <button className="button button_2">

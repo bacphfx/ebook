@@ -7,7 +7,7 @@ import Register from "./pages/auth/Register";
 import Login from "./pages/auth/Login";
 
 import "./App.css";
-import { login } from "./redux/action/ActionSession";
+import { login, logout } from "./redux/action/ActionSession";
 import { useDispatch } from "react-redux";
 import Posts from "./pages/post/Posts";
 import BookReader from "./pages/book/BookReader";
@@ -21,7 +21,9 @@ function App() {
   useEffect(() => {
     if (user) {
       const action = login(user);
-
+      dispath(action);
+    } else {
+      const action = logout(user);
       dispath(action);
     }
   }, [user]);

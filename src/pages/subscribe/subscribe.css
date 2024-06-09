@@ -33,3 +33,12 @@
   font-size: 18px;
   font-weight: 600;
 }
+
+.subscribe-list {
+  margin-top: 30px;
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}

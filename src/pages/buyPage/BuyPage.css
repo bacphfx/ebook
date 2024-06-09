@@ -1,12 +1,22 @@
 .buy-page-container {
-  padding: 20px;
+  height: 100vh;
+}
+
+.buy-page-banner {
+  height: 30vh;
+  background-image: url("https://www.qapitol.com/wp-content/uploads/2023/12/45.-Ensure-flawless-checkout-blog-banner.jpg"); /* Path to your image */
+  background-size: cover; /* Cover the entire div */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat;
+  background-color: black;
+  opacity: 0.5;
 }
 .buy-page-container h1 {
   text-align: center;
 }
 
 .buy-page-content {
-  width: 60vw;
+  width: 50vw;
   margin: auto;
   display: flex;
   justify-content: space-between;
@@ -65,4 +75,14 @@
 .book-info p,
 .account-info p {
   color: #666;
+}
+
+.image-upload {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  text-align: center;
+  width: 50%;
+  padding: 20px;
 }

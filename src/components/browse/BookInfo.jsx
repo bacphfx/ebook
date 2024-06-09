@@ -29,7 +29,7 @@ const BookInfo = ({ isShowing, hide, data }) => {
       alertify.set("notifier", "position", "bottom-left");
       alertify.error("Bạn cần đăng nhập để thực hiện hành động này!");
     } else {
-      navigate("/buy", { state: { bookData: data } });
+      navigate("/buy", { state: { data: data } });
     }
   };
   return isShowing

@@ -14,7 +14,7 @@ const Slider = () => {
     if (index > lastIndex) {
       setIndex(0);
     }
-  }, [index, banner]);
+  }, [index]);
 
   useEffect(() => {
     let slider = setInterval(() => {

@@ -1,0 +1,21 @@
+.image-upload-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  text-align: center;
+  gap: 10px;
+}
+
+.image-upload-form button {
+  width: 50%;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+}
+
+.image-upload-form button:hover {
+  background-color: #13604d;
+  color: white;
+}

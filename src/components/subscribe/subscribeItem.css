@@ -1,0 +1,38 @@
+.subscribe-wrapper {
+  border: 1px solid white;
+  border-radius: 10px;
+  width: 20vw;
+  text-align: center;
+  background-color: #393e3c;
+}
+
+.subscribe-title {
+  font-size: 20px;
+  font-weight: 500;
+  text-transform: uppercase;
+  padding: 20px 0;
+  border-bottom: 1px solid white;
+}
+
+.subscribe-price {
+  font-size: 30px;
+  font-weight: bold;
+  padding: 20px 0 0;
+}
+
+.subscribe-time {
+  margin-bottom: 10px;
+}
+
+.subscribe-button {
+  margin: 20px;
+  padding: 15px 40px;
+  border-radius: 30px;
+  border: 0.2px solid white;
+  background-color: transparent;
+  color: white;
+}
+
+.subscribe-button:hover {
+  background-color: #15b088;
+}

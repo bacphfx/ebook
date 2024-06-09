@@ -1,10 +1,6 @@
 import React from "react";
 import "./pagination.css";
-import {
-  ArrowBackIos,
-  ArrowForwardIos,
-  SkipPreviousOutlined,
-} from "@mui/icons-material";
+import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
 
 const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   return (
