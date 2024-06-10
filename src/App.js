@@ -14,6 +14,8 @@ import BookReader from "./pages/book/BookReader";
 import Category from "./pages/category/Category";
 import Subscribe from "./pages/subscribe/Subscribe";
 import BuyPage from "./pages/buyPage/BuyPage";
+import PurchasedBook from "./pages/purchasedBooks/PurchasedBook";
+import RecentBooks from "./pages/recentBooks/RecentBooks";
 
 function App() {
   const dispath = useDispatch();
@@ -41,6 +43,8 @@ function App() {
         <Route path="/book/:bookId" element={<BookReader />} />
         <Route path="/subscribed" element={<Subscribe />} />
         <Route path="/buy" element={<BuyPage />} />
+        <Route path="/purchased-books" element={<PurchasedBook />} />
+        <Route path="/recent" element={<RecentBooks />} />
       </Routes>
     </BrowserRouter>
   );

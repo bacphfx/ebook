@@ -1,0 +1,10 @@
+.purchased-books-container {
+  padding: 80px 50px;
+}
+
+.purchased-books-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4vw 3vw;
+  margin-top: 20px;
+}

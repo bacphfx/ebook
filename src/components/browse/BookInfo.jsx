@@ -24,7 +24,7 @@ const BookInfo = ({ isShowing, hide, data, purchasedBooks }) => {
   }, [user]);
 
   useEffect(() => {
-    if (purchasedBooks.includes(data?.id)) {
+    if (purchasedBooks.map((i) => i?.book_id).includes(data?.id)) {
       setIsPurchased(true);
     } else {
       setIsPurchased(false);

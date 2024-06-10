@@ -4,6 +4,7 @@ import { Logout, NotificationsNone, Search } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Menu from "./Menu";
+import UserInfomation from "./UserInfomation";
 
 function Nav() {
   const auth = useSelector((state) => state.auth);
@@ -12,6 +13,7 @@ function Nav() {
   const [show, handleShow] = useState(false);
 
   const [isMenuShow, setIsMenuShow] = useState(false);
+  const [isUserDropdownShow, setIsUserDropdownShow] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,6 +31,7 @@ function Nav() {
     try {
       localStorage.removeItem("user");
       localStorage.removeItem("token");
+      localStorage.removeItem("recentBooks");
       window.location.reload();
     } catch (error) {
       console.log(error);
@@ -44,7 +47,7 @@ function Nav() {
       <div className={`nav ${show && "nav_black"}`}>
         <div className="fixed">
           <div className="right_nav">
-            <Link to="/" className="nav-title" style={{ color: "green" }}>
+            <Link to="/" className="nav-title">
               <p>Book Store</p>
             </Link>
             <Link className="nav-title" onClick={toggle}>
@@ -115,7 +118,12 @@ function Nav() {
                 <div className="notification">
                   <NotificationsNone fontSize="large" />
                 </div>
-                <div className="username"></div>
+                <div
+                  className="username"
+                  onClick={() => {
+                    setIsUserDropdownShow(!isUserDropdownShow);
+                  }}
+                ></div>
                 <div className="logout" onClick={handleLogout}>
                   <Logout fontSize="large" />
                 </div>
@@ -125,6 +133,7 @@ function Nav() {
         </div>
       </div>
       {isMenuShow && <Menu hide={toggle} />}
+      {isUserDropdownShow && <UserInfomation />}
     </div>
   );
 }

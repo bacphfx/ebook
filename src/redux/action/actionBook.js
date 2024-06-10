@@ -9,9 +9,11 @@ export const fetchPurchasedBooks = () => {
   return async (dispatch) => {
     const token = localStorage.getItem("token");
     try {
-      const response = await UserAPI.getPurchasedBooks(token);
-      const data = await response?.data.data.map((i) => i?.book_id);
-      dispatch(setPurchasedBooks(data));
+      if (token) {
+        const response = await UserAPI.getPurchasedBooks(token);
+        const data = await response?.data.data;
+        dispatch(setPurchasedBooks(data));
+      }
     } catch (error) {
       console.error("Failed to fetch purchased books", error);
     }

@@ -1,0 +1,19 @@
+.recent-container {
+  padding: 80px 50px;
+}
+
+ul {
+  padding: 10px;
+}
+li {
+  padding: 10px;
+}
+
+.recent-title {
+  font-size: 24px;
+}
+
+.recent-title:hover {
+  color: green;
+  font-weight: bold;
+}

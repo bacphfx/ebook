@@ -3,6 +3,7 @@ import PDFViewer from "../../components/pdf/PDFViewer";
 import { useParams, useNavigate } from "react-router-dom"; // Sử dụng useNavigate thay vì useHistory
 import BookAPI from "../../components/api/bookAPI";
 import { ArrowBackIos } from "@mui/icons-material";
+import { addRecentBook } from "../../utils/localStorage";
 import "./bookReader.css";
 
 const BookReader = () => {
@@ -24,6 +25,7 @@ const BookReader = () => {
         const res = await BookAPI.getBookDetail(bookId, token);
         setBook(res.data);
         setLoading(false);
+        addRecentBook(res.data);
       } catch (error) {
         console.error("Error fetching book details:", error);
         setError("Failed to fetch book details");
@@ -51,12 +53,13 @@ const BookReader = () => {
         <ArrowBackIos onClick={handleBackClick} className="left-element" />
         <p className="center-element">{book?.title}</p>
       </div>
-
-      {book?.file ? (
-        <PDFViewer url={book.file} />
-      ) : (
-        <div>No PDF file available</div>
-      )}
+      <div className="book-pdf">
+        {book?.file ? (
+          <PDFViewer url={book.file} />
+        ) : (
+          <div>No PDF file available</div>
+        )}
+      </div>
     </div>
   );
 };
