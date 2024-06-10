@@ -8,7 +8,8 @@ const Search = () => {
   const [query, setQuery] = useState("");
   const [searchInput, setSearchInput] = useState("");
 
-  const handleSearch = () => {
+  const handleSearch = (e) => {
+    e.preventDefault();
     setQuery(searchInput);
   };
 
@@ -21,13 +22,13 @@ const Search = () => {
     <div className="app">
       <Nav />
       <div className="s009">
-        <form>
+        <form onSubmit={handleSearch}>
           <div className="inner-form">
             <div className="basic-search">
               <div className="input-field">
                 <input
                   type="text"
-                  placeholder="Type Keywords"
+                  placeholder="Nhập tên sách"
                   onChange={(e) => setSearchInput(e.target.value)}
                   value={searchInput}
                 />
@@ -59,11 +60,7 @@ const Search = () => {
                     >
                       RESET
                     </button>
-                    <button
-                      className="btn-search"
-                      type="button"
-                      onClick={() => handleSearch()}
-                    >
+                    <button className="btn-search" type="submit">
                       SEARCH
                     </button>
                   </div>

@@ -31,7 +31,6 @@ const Login = () => {
     };
     try {
       const res = await axios.post("http://103.186.65.188/api/login", body);
-      console.log(res.data);
       localStorage.setItem("user", JSON.stringify(res.data.data.user));
       localStorage.setItem("token", res.data.data.token);
       const action = login(localStorage.getItem("user"));

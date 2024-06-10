@@ -5,6 +5,10 @@ const BookAPI = {
     const url = `/books?category_id=${categoryId}`;
     return axiosClient.get(url);
   },
+  getBooksByName: (name) => {
+    const url = `/books?query=${name}`;
+    return axiosClient.get(url);
+  },
 
   getBookDetail: (id, token) => {
     const url = `/books/${id}`;
