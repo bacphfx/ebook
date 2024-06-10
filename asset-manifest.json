@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/bacphfx/ebook.git/static/css/main.6fbd8542.css",
-    "main.js": "/bacphfx/ebook.git/static/js/main.79066ffe.js",
-    "index.html": "/bacphfx/ebook.git/index.html",
-    "main.6fbd8542.css.map": "/bacphfx/ebook.git/static/css/main.6fbd8542.css.map",
-    "main.79066ffe.js.map": "/bacphfx/ebook.git/static/js/main.79066ffe.js.map"
+    "main.css": "/ebook/static/css/main.6fbd8542.css",
+    "main.js": "/ebook/static/js/main.d0c10440.js",
+    "index.html": "/ebook/index.html",
+    "main.6fbd8542.css.map": "/ebook/static/css/main.6fbd8542.css.map",
+    "main.d0c10440.js.map": "/ebook/static/js/main.d0c10440.js.map"
   },
   "entrypoints": [
     "static/css/main.6fbd8542.css",
-    "static/js/main.79066ffe.js"
+    "static/js/main.d0c10440.js"
   ]
 }
