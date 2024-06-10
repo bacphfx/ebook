@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/bacphfx/ebook.git/static/css/main.6fbd8542.css",
+    "main.js": "/bacphfx/ebook.git/static/js/main.79066ffe.js",
+    "index.html": "/bacphfx/ebook.git/index.html",
+    "main.6fbd8542.css.map": "/bacphfx/ebook.git/static/css/main.6fbd8542.css.map",
+    "main.79066ffe.js.map": "/bacphfx/ebook.git/static/js/main.79066ffe.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6fbd8542.css",
+    "static/js/main.79066ffe.js"
+  ]
+}
