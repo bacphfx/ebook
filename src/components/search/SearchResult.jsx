@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 
-import MovieDetail from "../browse/MovieDetail";
 import BookItem from "../browse/BookItem";
 import "./SearchResult.css";
 import BookAPI from "../api/bookAPI";

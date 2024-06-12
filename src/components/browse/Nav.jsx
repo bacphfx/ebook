@@ -11,9 +11,9 @@ function Nav() {
   const isAuth = auth.isAuthenticated;
   const user = JSON.parse(auth.user);
   const [show, handleShow] = useState(false);
-
   const [isMenuShow, setIsMenuShow] = useState(false);
   const [isUserDropdownShow, setIsUserDropdownShow] = useState(false);
+  const [isNavOpen, setIsNavOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,13 +42,17 @@ function Nav() {
     setIsMenuShow(!isMenuShow);
   };
 
+  const toggleNav = () => {
+    setIsNavOpen(!isNavOpen);
+  };
+
   return (
     <div>
       <div className={`nav ${show && "nav_black"}`}>
         <div className="fixed">
           <div className="right_nav">
             <Link to="/" className="nav-title">
-              <p>Book Store</p>
+              <p>Ebook</p>
             </Link>
             <Link className="nav-title" onClick={toggle}>
               Sách điện tử
