@@ -8,7 +8,7 @@ import BookItem from "./BookItem";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPurchasedBooks } from "../../redux/action/actionBook";
 
-function BookList({ title, data, number }) {
+function BookList({ title, data, limit }) {
   const [books, setBooks] = useState([]);
   const [selectedBook, setSelectedBook] = useState(null);
 
@@ -17,8 +17,8 @@ function BookList({ title, data, number }) {
   const fetchBooks = useCallback(
     debounce(async (category) => {
       try {
-        const request = await BookAPI.getBooksByCategory(category);
-        setBooks(request.data.data.slice(0, number));
+        const request = await BookAPI.getBooksByCategory(category, limit);
+        setBooks(request.data.data);
       } catch (error) {
         console.error("Failed to fetch books:", error);
       }

@@ -13,6 +13,7 @@
   padding: 20px;
   display: flex;
   overflow-y: auto;
+  z-index: 3;
 }
 
 .modal-overlay {
@@ -84,4 +85,46 @@ h3::first-letter {
 .link-style {
   text-decoration: none;
   color: inherit;
+}
+
+@media (max-width: 480px) {
+  .modal {
+    top: 0; /* Thay đổi vị trí top để khắc phục vấn đề hiển thị trên màn hình nhỏ */
+    bottom: 0; /* Thay đổi vị trí bottom để khắc phục vấn đề hiển thị trên màn hình nhỏ */
+    left: 0; /* Thay đổi vị trí left để khắc phục vấn đề hiển thị trên màn hình nhỏ */
+    right: 0; /* Thay đổi vị trí right để khắc phục vấn đề hiển thị trên màn hình nhỏ */
+    width: 100%; /* Chiếm 100% chiều rộng của viewport */
+    height: 100%; /* Chiếm 100% chiều cao của viewport */
+    border-radius: 0; /* Không có bo tròn khi ở màn hình nhỏ */
+    padding: 10px; /* Padding nhỏ hơn để phù hợp với màn hình nhỏ */
+    flex-direction: column;
+  }
+
+  .modal-header {
+    margin: auto; /* Không margin phải khi ở màn hình nhỏ */
+  }
+
+  .modal-header img {
+    object-fit: cover;
+    border-radius: 10px;
+    width: 50vw;
+    height: 80vw;
+  }
+
+  .info {
+    margin: 0 10px; /* Không margin phải khi ở màn hình nhỏ */
+  }
+
+  .price {
+    justify-content: space-between; /* Căn giữa các phần tử trong price */
+    margin-bottom: 10px; /* Giảm margin-bottom */
+  }
+
+  .price h3 {
+    margin-right: 10px; /* Không margin-right khi ở màn hình nhỏ */
+  }
+
+  .read-button {
+    margin-left: 10px;
+  }
 }

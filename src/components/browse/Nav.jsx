@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "./Nav.css";
-import { Logout, NotificationsNone, Search } from "@mui/icons-material";
+import {
+  Logout,
+  NotificationsNone,
+  Search,
+  Menu as MenuIcon,
+  Close as CloseIcon,
+} from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Menu from "./Menu";
@@ -11,6 +17,7 @@ function Nav() {
   const isAuth = auth.isAuthenticated;
   const user = JSON.parse(auth.user);
   const [show, handleShow] = useState(false);
+
   const [isMenuShow, setIsMenuShow] = useState(false);
   const [isUserDropdownShow, setIsUserDropdownShow] = useState(false);
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -50,7 +57,15 @@ function Nav() {
     <div>
       <div className={`nav ${show && "nav_black"}`}>
         <div className="fixed">
-          <div className="right_nav">
+          <Link to="/" className="nav-title collapse-title">
+            <p>Ebook</p>
+          </Link>
+          <button className="collapse-button" onClick={toggleNav}>
+            {isNavOpen ? <CloseIcon /> : <MenuIcon />}
+          </button>
+        </div>
+        <div className="nav-row">
+          <div className={`right_nav ${isNavOpen ? "show" : ""}`}>
             <Link to="/" className="nav-title">
               <p>Ebook</p>
             </Link>
@@ -79,7 +94,7 @@ function Nav() {
               Khuyến mại
             </Link>
           </div>
-          <div className="left_nav">
+          <div className={`left_nav ${isNavOpen ? "show" : ""}`}>
             <div className="search">
               <Link to="/search" onClick={() => setIsMenuShow(false)}>
                 <Search style={{ color: "white" }} fontSize="large" />

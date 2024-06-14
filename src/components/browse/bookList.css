@@ -1,3 +1,6 @@
+/* CSS cho BookList */
+
+/* Phong cách chung */
 .row {
   color: #fff;
   margin-left: 60px;
@@ -33,4 +36,20 @@
 .sc2::-webkit-scrollbar-thumb {
   background-color: #11171a;
   border-radius: 10px;
+}
+
+/* Responsive styles for mobile */
+@media (max-width: 480px) {
+  .row {
+    margin-left: 20px;
+    margin-top: 40px;
+  }
+
+  .row_posters {
+    gap: 8vw 2vw;
+    margin-top: 10px;
+    justify-content: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+  }
 }

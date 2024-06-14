@@ -1,3 +1,5 @@
+/* Nav.css */
+
 .nav {
   position: fixed;
   top: 0;
@@ -8,15 +10,20 @@
   transition-timing-function: ease-in;
   transition: all 0.5s;
 }
+
 .fixed {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .nav_black {
   background-color: #111;
   opacity: 0.8;
+}
+
+.nav-row {
+  display: flex;
 }
 
 .nav_logo {
@@ -53,6 +60,7 @@
   border-radius: 20px;
   background-color: transparent;
 }
+
 .button_1 {
   border: 1px solid yellow;
 }
@@ -99,4 +107,81 @@
 
 .logout {
   cursor: pointer;
+}
+
+/* CSS cho màn hình tối đa 480px */
+@media (max-width: 480px) {
+  .nav {
+    position: static; /* Remove fixed position on mobile */
+    padding: 10px;
+    height: auto;
+  }
+
+  .fixed {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .right_nav,
+  .left_nav {
+    display: none; /* Hide by default on mobile */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .right_nav.show,
+  .left_nav.show {
+    display: flex; /* Show when the menu is toggled */
+  }
+
+  .nav-title {
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+
+  .search,
+  .button,
+  .notification,
+  .username {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .button {
+    padding: 5px 10px;
+  }
+
+  .nav_logo {
+    width: 60px;
+  }
+
+  .collapse-title {
+    display: block;
+  }
+
+  .collapse-button {
+    display: block; /* Display the collapse button */
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  .nav-title {
+    flex: 1;
+    text-align: left;
+  }
+}
+
+/* Ẩn nút collapse khi màn hình lớn hơn 480px */
+@media (min-width: 481px) {
+  .collapse-button {
+    display: none;
+  }
+  .collapse-title {
+    display: none;
+  }
 }

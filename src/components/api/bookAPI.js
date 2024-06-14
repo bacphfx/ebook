@@ -1,8 +1,8 @@
 import axiosClient from "../../utils/axios";
 
 const BookAPI = {
-  getBooksByCategory: (categoryId) => {
-    const url = `/books?category_id=${categoryId}`;
+  getBooksByCategory: (categoryId, limit) => {
+    const url = `/books?category_id=${categoryId}&limit=${limit}`;
     return axiosClient.get(url);
   },
   getBooksByName: (name) => {

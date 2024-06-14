@@ -30,7 +30,7 @@ function Browse() {
           title={category.name}
           data={category.id}
           key={category.id}
-          number={6}
+          limit={6}
         />
       ))}
     </div>

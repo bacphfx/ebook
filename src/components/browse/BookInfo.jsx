@@ -60,8 +60,8 @@ const BookInfo = ({ isShowing, hide, data, purchasedBooks }) => {
                 <img src={data?.image} alt={data?.name} />
               </div>
               <div className="info">
-                <h1>{data?.title}</h1>
-                <h3>{data?.author}</h3>
+                <h1 style={{ textAlign: "center" }}>{data?.title}</h1>
+                <h3>Tác giả: {data?.author}</h3>
                 <div className="price">
                   <h3>
                     {new Intl.NumberFormat("vi-VN", {

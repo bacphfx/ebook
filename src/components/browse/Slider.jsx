@@ -26,22 +26,20 @@ const Slider = () => {
   return (
     <div className="container">
       <div className="wrapper">
-        <div className="slide">
-          {banner.map((b, i) => {
-            let position = "nextSlide";
-            if (i === index) {
-              position = "activeSlide";
-            }
-            if (i === index - 1 || (index === 0 && i === banner.length - 1)) {
-              position = "lastSlide";
-            }
-            return (
-              <article key={b.id} className={position}>
-                <img src={b.image} className="img" alt={`Slide ${b.id}`} />
-              </article>
-            );
-          })}
-        </div>
+        {banner.map((b, i) => {
+          let position = "nextSlide";
+          if (i === index) {
+            position = "activeSlide";
+          }
+          if (i === index - 1 || (index === 0 && i === banner.length - 1)) {
+            position = "lastSlide";
+          }
+          return (
+            <article key={b.id} className={position}>
+              <img src={b.image} className="img" alt={`Slide ${b.id}`} />
+            </article>
+          );
+        })}
       </div>
       <div className="arrow arrow-left" onClick={() => setIndex(index - 1)}>
         <ArrowBackIosNew />
