@@ -1,13 +1,26 @@
 import React, { useEffect, useState } from "react";
 import "./Slider.css";
 import { ArrowBackIosNew, ArrowForwardIos } from "@mui/icons-material";
-import banner from "../../data"; // Chỉnh sửa dòng này để phù hợp với cách bạn import dữ liệu
+import BannerAPI from "../api/banner";
 
 const Slider = () => {
   const [index, setIndex] = useState(0);
+  const [banners, setBanners] = useState([]);
 
   useEffect(() => {
-    const lastIndex = banner.length - 1;
+    const getBanners = async () => {
+      try {
+        const res = await BannerAPI.getAllData();
+        setBanners(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getBanners();
+  }, []);
+
+  useEffect(() => {
+    const lastIndex = banners.length - 1;
     if (index < 0) {
       setIndex(lastIndex);
     }
@@ -26,12 +39,12 @@ const Slider = () => {
   return (
     <div className="container">
       <div className="wrapper">
-        {banner.map((b, i) => {
+        {banners.map((b, i) => {
           let position = "nextSlide";
           if (i === index) {
             position = "activeSlide";
           }
-          if (i === index - 1 || (index === 0 && i === banner.length - 1)) {
+          if (i === index - 1 || (index === 0 && i === banners.length - 1)) {
             position = "lastSlide";
           }
           return (

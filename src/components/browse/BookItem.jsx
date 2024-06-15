@@ -10,7 +10,7 @@ const BookItem = ({ book, click }) => {
         src={book.image}
         alt={book.name}
       />
-      <h4>{book.title}</h4>
+      <div className="book-title">{book.title}</div>
     </div>
   );
 };

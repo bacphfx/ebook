@@ -6,7 +6,7 @@
   height: 30vh;
   background-image: url("https://www.qapitol.com/wp-content/uploads/2023/12/45.-Ensure-flawless-checkout-blog-banner.jpg"); /* Path to your image */
   background-size: cover; /* Cover the entire div */
-  background-position: center; /* Center the image */
+  background-position: right; /* Center the image */
   background-repeat: no-repeat;
   background-color: black;
   opacity: 0.5;
@@ -85,4 +85,18 @@
   text-align: center;
   width: 50%;
   padding: 20px;
+}
+
+@media (max-width: 480px) {
+  .buy-page-banner {
+    height: 20vh;
+  }
+  .buy-page-content {
+    flex-direction: column;
+    width: 100%;
+    padding: 20px;
+  }
+  .account-info {
+    flex-direction: column;
+  }
 }

@@ -17,7 +17,7 @@ const Category = () => {
   return (
     <>
       <Nav />
-      <BookList title={title} data={categoryId} limit={12} />
+      <BookList title={title} data={categoryId} limit={12} type={"category"} />
     </>
   );
 };

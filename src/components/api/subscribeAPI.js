@@ -1,8 +1,8 @@
 import axiosClient from "../../utils/axios";
 
 const SubscribeAPI = {
-  getAllData: () => {
-    const url = `/subscriptions`;
+  getAllData: (limit, page) => {
+    const url = `/subscriptions?limit=${limit}&page=${page}`;
     return axiosClient.get(url);
   },
 

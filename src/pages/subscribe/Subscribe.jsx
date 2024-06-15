@@ -3,20 +3,31 @@ import Nav from "../../components/browse/Nav";
 import "./subscribe.css";
 import SubscribeItem from "../../components/subscribe/SubscribeItem";
 import SubscribeAPI from "../../components/api/subscribeAPI";
+import Pagination from "../../components/browse/Pagination";
 
 const Subscribe = () => {
   const [subscribes, setSubscribes] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
   useEffect(() => {
     const getSubscribes = async () => {
       try {
-        const res = await SubscribeAPI.getAllData();
+        const res = await SubscribeAPI.getAllData(4, currentPage);
+        setTotalPages(Math.ceil(res.data.total / res.data.per_page));
         setSubscribes(res.data.data);
       } catch (error) {
         console.log(error);
       }
     };
     getSubscribes();
-  }, []);
+  }, [currentPage]);
+
+  const handlePageChange = (page) => {
+    if (page > 0 && page <= totalPages) {
+      setCurrentPage(page);
+    }
+  };
+
   return (
     <div>
       <Nav />
@@ -34,6 +45,11 @@ const Subscribe = () => {
           <SubscribeItem key={sub.id} data={sub} />
         ))}
       </div>
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={handlePageChange}
+      />
     </div>
   );
 };

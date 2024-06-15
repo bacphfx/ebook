@@ -12,6 +12,7 @@
   flex-wrap: wrap;
   gap: 4vw 3vw;
   margin-top: 20px;
+  margin-bottom: 50px;
 }
 
 .book h4::first-letter {
@@ -46,7 +47,7 @@
   }
 
   .row_posters {
-    gap: 8vw 2vw;
+    gap: 10vw 3vw;
     margin-top: 10px;
     justify-content: flex-start;
     display: flex;

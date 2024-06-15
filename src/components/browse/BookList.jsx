@@ -7,23 +7,31 @@ import { debounce } from "lodash";
 import BookItem from "./BookItem";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPurchasedBooks } from "../../redux/action/actionBook";
+import Pagination from "./Pagination";
 
-function BookList({ title, data, limit }) {
+function BookList({ title, data, limit, type }) {
   const [books, setBooks] = useState([]);
   const [selectedBook, setSelectedBook] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
 
   const { isShowing, toggle } = useModal();
 
   const fetchBooks = useCallback(
     debounce(async (category) => {
       try {
-        const request = await BookAPI.getBooksByCategory(category, limit);
-        setBooks(request.data.data);
+        const res = await BookAPI.getBooksByCategory(
+          category,
+          limit,
+          currentPage
+        );
+        setBooks(res.data.data);
+        setTotalPages(Math.ceil(res.data.total / res.data.per_page));
       } catch (error) {
         console.error("Failed to fetch books:", error);
       }
     }, 300), // Adjust the debounce time as needed
-    []
+    [currentPage]
   );
 
   useEffect(() => {
@@ -42,6 +50,12 @@ function BookList({ title, data, limit }) {
     setSelectedBook(book);
   };
 
+  const handlePageChange = (page) => {
+    if (page > 0 && page <= totalPages) {
+      setCurrentPage(page);
+    }
+  };
+
   if (books.length === 0) return null;
   return (
     <div className="row">
@@ -51,6 +65,13 @@ function BookList({ title, data, limit }) {
           return <BookItem book={book} click={handleClick} key={book.id} />;
         })}
       </div>
+      {type === "category" && (
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+        />
+      )}
       <BookInfo
         isShowing={isShowing}
         hide={toggle}

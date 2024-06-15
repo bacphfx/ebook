@@ -31,6 +31,7 @@ function Browse() {
           data={category.id}
           key={category.id}
           limit={6}
+          type={"browse"}
         />
       ))}
     </div>
