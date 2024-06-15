@@ -40,3 +40,16 @@
 .content a:hover {
   text-decoration: underline;
 }
+
+@media (max-width: 480px) {
+  .news-item {
+    width: 100%;
+    max-width: 100%;
+    padding: 10px;
+  }
+  .news-item img {
+    width: 20vw;
+    height: 20vw;
+    object-fit: cover;
+  }
+}

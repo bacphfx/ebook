@@ -21,9 +21,10 @@
 
 .banner-subscribe-header {
   position: absolute;
-  bottom: 40px;
+  bottom: 50px;
   left: 50px;
-  font-size: 26px;
+  font-size: 48px;
+  font-weight: bold;
 }
 
 .banner-subscribe-desc {
@@ -35,10 +36,39 @@
 }
 
 .subscribe-list {
-  margin-top: 30px;
-  padding: 20px;
+  padding: 40px;
   display: flex;
-  gap: 20px;
-  justify-content: space-around;
+  gap: 2vw 4vw;
+  justify-content: flex-start;
   flex-wrap: wrap;
+}
+
+@media (max-width: 480px) {
+  .banner-subscribe {
+    height: 20vh;
+  }
+
+  .banner-subscribe-header {
+    position: absolute;
+    bottom: 40px;
+    left: 20px;
+    font-size: 36px;
+  }
+
+  .banner-subscribe-desc {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .subscribe-list {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 2vw;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 }

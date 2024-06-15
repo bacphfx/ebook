@@ -23,7 +23,7 @@ const Subscribe = () => {
       <div className="banner-subscribe">
         <div className="banner-subscribe-overlay"></div>
         <div className="banner-subscribe-header">
-          <h1>Gói hội viên</h1>
+          <p>Gói hội viên</p>
         </div>
         <div className="banner-subscribe-desc">
           <p>Trở thành hội viên và mở khóa tất cả các sách</p>
